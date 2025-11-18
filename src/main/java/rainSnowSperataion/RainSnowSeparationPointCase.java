@@ -110,16 +110,30 @@ public class RainSnowSeparationPointCase extends HMModel {
 			temperature=inTemperatureValues.get(ID)[0];
 			precipitation=inPrecipitationValues.get(ID)[0];
 
-
 			// compute the rainfall and the snowfall according to Kavetski et al. (2006)
-			double rainfall=alfa_r*((precipitation/ Math.PI)* Math.atan((temperature - meltingTemperature) / m1)+precipitation/2);
-			rainfall=(rainfall<0)?0:rainfall;
-			double snowfall=alfa_s*(precipitation-rainfall);
-			snowfall=(snowfall<0)?0:snowfall;
-			
-			storeResult_series((Integer)ID,rainfall,  snowfall);
-
+			double[] rs=calculateRSSeparation(precipitation, temperature, meltingTemperature, alfa_r, alfa_s, m1);
+			storeResult_series((Integer)ID,rs[0],  rs[1]);
 		}
+	}
+	
+	/**
+	 * Calculate the rainfall and the snowfall according to Kavetski et al. (2006)
+	 * 
+	 * @param precipitation
+	 * @param temperature
+	 * @param meltingTemperature
+	 * @param alfa_r the adjustment parameter for the rainfall measurements errors.
+	 * @param alfa_s the adjustment parameter for the snow measurements errors.
+	 * @param m1 the parameter controling the degree of smoothing (defaults to 1.0).
+	 * @return an array with calculated rainfall and snowfall values.
+	 */
+	public static double[] calculateRSSeparation(double precipitation, double temperature, double meltingTemperature, double alfa_r, double alfa_s, double m1) {
+		// compute the rainfall and the snowfall according to Kavetski et al. (2006)
+		double rainfall=alfa_r*((precipitation/ Math.PI)* Math.atan((temperature - meltingTemperature) / m1)+precipitation/2);
+		rainfall=(rainfall<0)?0:rainfall;
+		double snowfall=alfa_s*(precipitation-rainfall);
+		snowfall=(snowfall<0)?0:snowfall;
+		return new double[] {rainfall, snowfall};
 	}
 
 
