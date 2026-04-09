@@ -20,15 +20,12 @@ package rainSnowSperationTest;
 import java.net.URISyntaxException;
 import java.util.HashMap;
 
+import org.geoframe.rainsnowseparation.RainSnowSeparationPointCase;
 import org.geotools.data.simple.SimpleFeatureCollection;
 import org.hortonmachine.gears.io.shapefile.OmsShapefileFeatureReader;
 import org.hortonmachine.gears.io.timedependent.OmsTimeSeriesIteratorReader;
 import org.hortonmachine.gears.io.timedependent.OmsTimeSeriesIteratorWriter;
 import org.junit.*;
-
-
-
-import it.geoframe.blogspot.rainsnowseparation.RainSnowSeparationPointCase;
 
 
 /**

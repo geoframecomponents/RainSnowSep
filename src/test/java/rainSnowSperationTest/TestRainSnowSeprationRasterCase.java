@@ -19,15 +19,13 @@ package rainSnowSperationTest;
 
 
 
+import org.geoframe.rainsnowseparation.RainSnowSeparationRasterCase;
 import org.geotools.coverage.grid.GridCoverage2D;
 
 import org.hortonmachine.gears.io.rasterreader.OmsRasterReader;
 import org.hortonmachine.gears.io.rasterwriter.OmsRasterWriter;
 
 import org.junit.Test;
-
-
-import it.geoframe.blogspot.rainsnowseparation.RainSnowSeparationRasterCase;
 
 /**
  * Test the separetor module.
