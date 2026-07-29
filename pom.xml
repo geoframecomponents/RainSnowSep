@@ -1,5 +1,7 @@
-<project>
-	<modelVersion>4.0.0</modelVersion>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+		<modelVersion>4.0.0</modelVersion>
 
 	<groupId>org.geoframe</groupId>
 	<artifactId>rainsnowseparation</artifactId>
@@ -13,23 +15,30 @@
 
 	<organization>
 		<name>GEOframe</name>
-		<url>https://github.com/geoframecomponents</url>
+		<url>https://geoframe.blogspot.com</url>
 	</organization>
 
 
-	<!--<developers>
+	<developers>
 		<developer>
-			<id></id>
-			<name></name>
-			<email></email>
-			<organization>/organization>
-			<organizationUrl></organizationUrl>
+			<id>bubobne</id>
+			<name>Daniele Andreis</name>
+			<email>daniele.andreis@gmail.com</email>
+			<organization>GEOframe</organization>
+			<organizationUrl>https://geoframe.blogspot.com/</organizationUrl>
 		</developer>
-	</developers>-->
+		<developer>
+			<id>formeppe</id>
+			<name>Giuseppe Formetta</name>
+			<email>giuseppe.formetta@unitn.it</email>
+			<organization>GEOframe</organization>
+			<organizationUrl>https://geoframe.blogspot.com/</organizationUrl>
+		</developer>
+	</developers>
 
 	<properties>
 		<!-- rain snow separation-->
-		<revision>0.9.2_SNAPSHOT</revision>
+		<revision>0.9.3</revision>
 		<!-- Other libraruies-->
 		<hm.version>0.10.11</hm.version>
 		<gt.version>34.0</gt.version>
@@ -130,6 +139,17 @@
 				<extensions>true</extensions>
 				<configuration>
 					<publishingServerId>central</publishingServerId>
+				</configuration>
+			</plugin>
+		<plugin>
+				<groupId>org.sonatype.plugins</groupId>
+				<artifactId>nexus-staging-maven-plugin</artifactId>
+				<version>1.6.13</version>
+				<extensions>true</extensions>
+				<configuration>
+					<serverId>central</serverId>
+					<nexusUrl>https://oss.sonatype.org/</nexusUrl>
+					<autoReleaseAfterClose>true</autoReleaseAfterClose>
 				</configuration>
 			</plugin>
 
